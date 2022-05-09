@@ -1,19 +1,19 @@
-CREATE TABLE hockey_skates (id INTEGER PRIMARY KEY, brand TEXT, age_group TEXT, model TEXT, fit TEXT, size INTEGER, width TEXT, price TEXT);
+CREATE TABLE hockey_skates (id INTEGER PRIMARY KEY, brand TEXT, age_group TEXT, model TEXT, fit TEXT, size INTEGER, width TEXT, price_in_usd INTEGER);
 
-INSERT INTO hockey_skates VALUES (1, "Bauer", "Senior", "Vapor 3X", "Low-volume", 7.0, "D", "$449.99");
-INSERT INTO hockey_skates VALUES (2, "Bauer", "Senior", "Supreme 3S Pro", "Medium-volume", 8.5, "D", "$629.99");
-INSERT INTO hockey_skates VALUES (3, "Bauer", "Junior", "Vapor 3X", "Low-volume", 3.5, "EE", "$199.99");
-INSERT INTO hockey_skates VALUES (4, "Bauer", "Junior", "Supreme 2S Pro", "Medium-volume", 2.0, "D", "$454.99");
-INSERT INTO hockey_skates VALUES (5, "Bauer", "Youth", "Supreme 3S Pro", "Medium-volume", 8.0, "D", "$99.99");
-INSERT INTO hockey_skates VALUES (6, "CCM", "Senior", "Ribcor 88k", "Low-volume", 9.0, "Regular", "$349.99");
-INSERT INTO hockey_skates VALUES (7, "CCM", "Senior", "Super Tacks AS3", "High-volume", 7.0, "Fit 2", "$503.99");
-INSERT INTO hockey_skates VALUES (8, "CCM", "Junior", "Jetspeed FT485", "Medium-volume", 1.5, "Fit 2", "$239.99");
-INSERT INTO hockey_skates VALUES (9, "CCM", "Junior", "Super Tacks 9380", "High-volume", 2.5, "Fit 3", "$199.99");
-INSERT INTO hockey_skates VALUES (10, "CCM", "Youth", "Super Tacks AS3", "Medium-volume", 7.0, "Regular", "$189.99");
-INSERT INTO hockey_skates VALUES (11, "Graf", "Junior", "PK3900", "Medium-volume", 10.0, "Regular", "$229.99");
-INSERT INTO hockey_skates VALUES (12, "Graf", "Senior", "PK5900", "Medium-volume", 8.0, "Regular", "$539.99");
-INSERT INTO hockey_skates VALUES (13, "Graf", "Senior", "G755", "Medium-volume", 8.5, "Regular", "$549.99");
-INSERT INTO hockey_skates VALUES (14, "True", "Senior", "TF7", "Medium-volume", 11, "Wide", "$329.99");
-INSERT INTO hockey_skates VALUES (15, "True", "Senior", "TF9", "Medium-volume", 9.5, "Regular", "$599.99");
+INSERT INTO hockey_skates VALUES (1, "Bauer", "Senior", "Vapor 3X", "Low-volume", 7.0, "D", 449.99);
+INSERT INTO hockey_skates VALUES (2, "Bauer", "Senior", "Supreme 3S Pro", "Medium-volume", 8.5, "D", 629.99);
+INSERT INTO hockey_skates VALUES (3, "Bauer", "Junior", "Vapor 3X", "Low-volume", 3.5, "EE", 199.99);
+INSERT INTO hockey_skates VALUES (4, "Bauer", "Junior", "Supreme 2S Pro", "Medium-volume", 2.0, "D", 454.99);
+INSERT INTO hockey_skates VALUES (5, "Bauer", "Youth", "Supreme 3S Pro", "Medium-volume", 8.0, "D", 99.99);
+INSERT INTO hockey_skates VALUES (6, "CCM", "Senior", "Ribcor 88k", "Low-volume", 9.0, "Regular", 349.99);
+INSERT INTO hockey_skates VALUES (7, "CCM", "Senior", "Super Tacks AS3", "High-volume", 7.0, "Fit 2", 503.99);
+INSERT INTO hockey_skates VALUES (8, "CCM", "Junior", "Jetspeed FT485", "Medium-volume", 1.5, "Fit 2", 239.99);
+INSERT INTO hockey_skates VALUES (9, "CCM", "Junior", "Super Tacks 9380", "High-volume", 2.5, "Fit 3", 199.99);
+INSERT INTO hockey_skates VALUES (10, "CCM", "Youth", "Super Tacks AS3", "Medium-volume", 7.0, "Regular", 189.99);
+INSERT INTO hockey_skates VALUES (11, "Graf", "Junior", "PK3900", "Medium-volume", 10.0, "Regular", 229.99);
+INSERT INTO hockey_skates VALUES (12, "Graf", "Senior", "PK5900", "Medium-volume", 8.0, "Regular", 539.99);
+INSERT INTO hockey_skates VALUES (13, "Graf", "Senior", "G755", "Medium-volume", 8.5, "Regular", 549.99);
+INSERT INTO hockey_skates VALUES (14, "True", "Senior", "TF7", "Medium-volume", 11, "Wide", 329.99);
+INSERT INTO hockey_skates VALUES (15, "True", "Senior", "TF9", "Medium-volume", 9.5, "Regular", 599.99);
 
-SELECT * FROM hockey_skates WHERE size < 10 AND size > 8.5 GROUP BY price;
+SELECT * FROM hockey_skates WHERE size < 10 AND size > 8.5 GROUP BY price_in_usd;
