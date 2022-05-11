@@ -1,0 +1,97 @@
+CREATE TABLE pro_athletes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT,
+    jersey_number INTEGER
+    );
+    
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Auston Matthews", 34);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Victor Hedman", 77);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Alex Ovechkin", 8);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Nikita Kucherov", 86);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("David Pastrnak", 88);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Sidney Crosby", 87);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Artemi Panarin", 10);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Leon Draisaitl", 29);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Nathan MacKinnon", 29);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Connor McDavid", 97);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Derrick Henry", 22);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Josh Allen", 17);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Travis Kelce", 87);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Davante Adams", 17);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Myles Garrett", 95);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("T.J. Watt", 90);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Patrick Mahomes", 15);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Aaron Donald", 99);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Aaron Rodgers", 12);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Tom Brady", 12);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("James Harden", 1);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Chris Paul", 3);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Luka Doncic", 77);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Kawhi Leonard", 2);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Lebron James", 6);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Stephen Curry", 30);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Joel Embiid", 21);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Nikola Jokic", 15);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Kevin Durant", 7);
+INSERT INTO pro_athletes (full_name, jersey_number) VALUES ("Giannis Antetokounmpo", 34);
+
+CREATE TABLE teams (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player_id INTEGER,
+    name TEXT
+    );
+
+INSERT INTO teams (player_id, name) VALUES (1, "Toronto Maple Leafs");
+INSERT INTO teams (player_id, name) VALUES (2, "Tampa Bay Lightning");
+INSERT INTO teams (player_id, name) VALUES (3, "Washington Capitals");
+INSERT INTO teams (player_id, name) VALUES (4, "Tampa Bay Lightning");
+INSERT INTO teams (player_id, name) VALUES (5, "Boston Bruins");
+INSERT INTO teams (player_id, name) VALUES (6, "Pittsburgh Penguins");
+INSERT INTO teams (player_id, name) VALUES (7, "New York Rangers");
+INSERT INTO teams (player_id, name) VALUES (8, "Edmonton Oilers");
+INSERT INTO teams (player_id, name) VALUES (9, "Colorado Avalange");
+INSERT INTO teams (player_id, name) VALUES (10, "Edmonton Oilers");
+INSERT INTO teams (player_id, name) VALUES (11, "Tennessee Titans");
+INSERT INTO teams (player_id, name) VALUES (12, "Buffalo Bills");
+INSERT INTO teams (player_id, name) VALUES (13, "Kansas City Chiefs");
+INSERT INTO teams (player_id, name) VALUES (14, "Green Bay Packers");
+INSERT INTO teams (player_id, name) VALUES (15, "Cleveland Browns");
+INSERT INTO teams (player_id, name) VALUES (16, "Pittsburgh Steelers");
+INSERT INTO teams (player_id, name) VALUES (17, "Kansas City Chiefs");
+INSERT INTO teams (player_id, name) VALUES (18, "Los Angeles Rams");
+INSERT INTO teams (player_id, name) VALUES (19, "Green Bay Packers");
+INSERT INTO teams (player_id, name) VALUES (20, "Tamba Bay Buccaneers");
+INSERT INTO teams (player_id, name) VALUES (21, "Philadelphia 76ers");
+INSERT INTO teams (player_id, name) VALUES (22, "Phoenix Suns");
+INSERT INTO teams (player_id, name) VALUES (23, "Dallas Mavericks");
+INSERT INTO teams (player_id, name) VALUES (24, "Los Angeles Clippers");
+INSERT INTO teams (player_id, name) VALUES (25, "Los Angeles Lakers");
+INSERT INTO teams (player_id, name) VALUES (26, "Golden Satate Warriors");
+INSERT INTO teams (player_id, name) VALUES (27, "Philadelphia 76ers");
+INSERT INTO teams (player_id, name) VALUES (28, "Denver Nuggets");
+INSERT INTO teams (player_id, name) VALUES (29, "Brooklyn Nets");
+INSERT INTO teams (player_id, name) VALUES (30, "Milwaukee Bucks");
+
+CREATE TABLE teammates (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player1_id INTEGER,
+    player2_id INTEGER
+    );
+    
+INSERT INTO teammates (player1_id, player2_id) VALUES (2, 4);
+INSERT INTO teammates (player1_id, player2_id) VALUES (8, 10);
+INSERT INTO teammates (player1_id, player2_id) VALUES (13, 17);
+INSERT INTO teammates (player1_id, player2_id) VALUES (21, 27);
+INSERT INTO teammates (player1_id, player2_id) VALUES (14, 19);
+    
+SELECT pa.full_name, t.name, jersey_number
+    FROM pro_athletes pa
+    JOIN teams t
+    ON pa.id = t.player_id;
+
+SELECT a.full_name, b.full_name
+    FROM teammates
+    JOIN pro_athletes a
+    ON a.id = teammates.player1_id
+    JOIN pro_athletes b
+    ON b.id = teammates.player2_id;
